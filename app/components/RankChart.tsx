@@ -18,7 +18,12 @@ interface SlotEntry {
 
 interface RankEntry {
   date: string;
+  brand?: string;
+  product_id: string;
   product: string;
+  slot_name?: string;
+  slot_count?: number;
+  slot_expiry?: string;
   category_rank: number;
   slots: SlotEntry[];
 }

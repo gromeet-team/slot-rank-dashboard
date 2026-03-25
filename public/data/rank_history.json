@@ -1,6 +1,8 @@
 [
   {
     "date": "2026-03-25",
+    "brand": "쿠참",
+    "product_id": "kucham-ice-maker",
     "product": "쿠참 올스텐 제빙기 17kg 가정용 업소용 아이스메이커",
     "slot_name": "NBT",
     "slot_count": 10,
@@ -8,6 +10,20 @@
     "category_rank": 35,
     "slots": [
       {"keyword": "제빙기", "rank": 28, "page": 1, "page_rank": 28}
+    ]
+  },
+  {
+    "date": "2026-03-25",
+    "brand": "쿠참",
+    "product_id": "kucham-blender",
+    "product": "쿠참 초고속 진공블렌더",
+    "slot_name": "NBT",
+    "slot_count": 10,
+    "slot_expiry": "2026-04-04",
+    "category_rank": 256,
+    "slots": [
+      {"keyword": "믹서기", "rank": 103, "page": 3, "page_rank": 23},
+      {"keyword": "블렌더", "rank": 96, "page": 3, "page_rank": 16}
     ]
   }
 ]
