@@ -36,14 +36,18 @@ export default function RankChart({ data }: { data: RankEntry[] }) {
     new Set(data.flatMap((d) => d.slots.map((s) => s.keyword)))
   );
 
-  // Build chart data: one entry per date with keyword ranks
-  const chartData = data.map((entry) => {
-    const point: Record<string, string | number> = { date: entry.date };
+  // Build chart data: one entry per date with all keyword ranks merged
+  const dateMap = new Map<string, Record<string, string | number>>();
+  data.forEach((entry) => {
+    const existing = dateMap.get(entry.date) || { date: entry.date };
     entry.slots.forEach((s) => {
-      point[s.keyword] = s.rank;
+      existing[s.keyword] = s.rank;
     });
-    return point;
+    dateMap.set(entry.date, existing);
   });
+  const chartData = Array.from(dateMap.values()).sort((a, b) =>
+    (a.date as string).localeCompare(b.date as string)
+  );
 
   return (
     <ResponsiveContainer width="100%" height={400}>
