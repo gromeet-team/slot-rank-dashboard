@@ -29,9 +29,9 @@
     "slots": [
       {
         "keyword": "제빙기",
-        "rank": null,
-        "page": null,
-        "page_rank": null
+        "rank": 28,
+        "page": 1,
+        "page_rank": 28
       }
     ]
   }
