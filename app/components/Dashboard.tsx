@@ -184,28 +184,28 @@ export default function Dashboard({ data }: { data: RankEntry[] }) {
                 <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>날짜</th>
                 <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>슬롯</th>
                 <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>제품</th>
-                <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>키워드</th>
-                <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>순위</th>
-                <th style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>카테고리</th>
+                <th style={{ padding: '0.75rem 1rem', textAlign: 'left' }}>키워드/순위</th>
               </tr>
             </thead>
             <tbody>
-              {sorted.flatMap((entry) =>
-                entry.slots.map((slot, i) => (
-                  <tr key={`${entry.date}-${entry.product_id}-${slot.keyword}`} style={{ borderBottom: '1px solid #222' }}>
-                    <td style={{ padding: '0.75rem 1rem', color: '#aaa' }}>{i === 0 ? entry.date : ''}</td>
-                    <td style={{ padding: '0.75rem 1rem', color: '#a78bfa', fontWeight: 600 }}>{i === 0 ? (entry.slot_name ?? '-') : ''}</td>
-                    <td style={{ padding: '0.75rem 1rem', maxWidth: 260, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: '#ccc' }}>
-                      {i === 0 ? entry.product : ''}
-                    </td>
-                    <td style={{ padding: '0.75rem 1rem' }}>{slot.keyword}</td>
-                    <td style={{ padding: '0.75rem 1rem', textAlign: 'right', fontWeight: 700, color: getRankColor(slot.rank) }}>
-                      {slot.rank}위
-                    </td>
-                    <td style={{ padding: '0.75rem 1rem', textAlign: 'right', color: '#888' }}>{i === 0 ? `${entry.category_rank}위` : ''}</td>
-                  </tr>
-                ))
-              )}
+              {sorted.map((entry, idx) => (
+                <tr key={`${entry.date}-${entry.product_id}`} style={{ borderBottom: '1px solid #222' }}>
+                  <td style={{ padding: '0.75rem 1rem', color: '#aaa' }}>{idx === 0 || sorted[idx - 1].date !== entry.date ? entry.date : ''}</td>
+                  <td style={{ padding: '0.75rem 1rem', color: '#a78bfa', fontWeight: 600 }}>{entry.slot_name ?? '-'}</td>
+                  <td style={{ padding: '0.75rem 1rem', maxWidth: 260, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: '#ccc' }}>
+                    {entry.product}
+                  </td>
+                  <td style={{ padding: '0.75rem 1rem' }}>
+                    <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
+                      {entry.slots.map((slot) => (
+                        <span key={slot.keyword} style={{ background: "#222", border: "1px solid #333", borderRadius: 6, padding: "2px 8px", color: getRankColor(slot.rank), fontWeight: 700, fontSize: "0.85rem" }}>
+                          {slot.keyword} {slot.rank}위
+                        </span>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
