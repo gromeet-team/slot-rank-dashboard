@@ -124,5 +124,41 @@
         "page_rank": 4
       }
     ]
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "쿠참",
+    "product_id": "kucham-ice-maker",
+    "product": "쿠참 올스텐 제빙기 17kg 가정용 업소용 아이스메이커",
+    "slot_name": "NBT",
+    "slot_count": 10,
+    "slot_expiry": "2026-04-04",
+    "category_rank": null,
+    "slots": [
+      {
+        "keyword": "제빙기",
+        "rank": null,
+        "page": null,
+        "page_rank": null
+      }
+    ]
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "포레몽",
+    "product_id": "foremong-split-heating",
+    "product": "포레몽 침대형 온수매트 퀸(분리난방)",
+    "slot_name": "아크플러스 테스트",
+    "slot_count": 10,
+    "slot_expiry": "2026-03-31",
+    "category_rank": null,
+    "slots": [
+      {
+        "keyword": "온수매트",
+        "rank": null,
+        "page": null,
+        "page_rank": null
+      }
+    ]
   }
 ]
